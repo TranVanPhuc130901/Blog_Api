@@ -10,21 +10,25 @@ class UploadController {
     async uploadImageFromUrl(req, res) {
         return new SuccessResponse({
             message: "Posts from url fetched successfully",
-            data: await uploadServices.uploadImageFromUrl(req.body)
+            metadata: await uploadServices.uploadImageFromUrl(req.body)
         }).send(res);
     }
 
     async uploadImageFromLocal(req, res) {
+        console.log(req.file.path)
         return new SuccessResponse({
             message: "Posts from local fetched successfully",
-            data: await uploadServices.uploadImageFromLocal(req.body)
+            metadata: await uploadServices.uploadImageFromLocal({
+                PostImage: req.file.path,
+                folderName: req.body.folderName
+            })
         }).send(res);
     }
 
     async uploadImageFromLocalFiles(req, res) {
         return new SuccessResponse({
             message: "Posts from local files fetched successfully",
-            data: await uploadServices.uploadImageFromLocalFiles(req.body)
+            metadata: await uploadServices.uploadImageFromLocalFiles(req.body)
         }).send(res);
     }
 

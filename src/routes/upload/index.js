@@ -13,7 +13,7 @@ const router = express.Router();
 router.post('/post', asyncHandler(uploadController.uploadImageFromUrl));
 
 router.post('/post/thumb', uploadDisk.single('PostImage'), asyncHandler(uploadController.uploadImageFromLocal));
-router.post('/post.mutiple', uploadDisk.array('PostImage', 7), asyncHandler(uploadController.uploadImageFromLocalFiles));
+router.post('/post/mutiple', uploadDisk.array('PostImage', 7), asyncHandler(uploadController.uploadImageFromLocalFiles));
 
 
 router.post('/category', asyncHandler(uploadController.uploadImageFromUrl));

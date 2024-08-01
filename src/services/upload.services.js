@@ -14,10 +14,11 @@ const uploadImageFromUrl = async(url) => {
 }
 
 const uploadImageFromLocal = async({
-        path,
+        PostImage,
         folderName = 'Posts',
     }) => {
-        const result = await cloudinary.uploader.upload(path, {
+        console.log(PostImage, folderName)
+        const result = await cloudinary.uploader.upload(PostImage, {
             public_id: 'thumb',
             folder: folderName
         });

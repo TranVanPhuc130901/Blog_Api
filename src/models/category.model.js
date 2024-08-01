@@ -8,16 +8,16 @@ const DOCUMENT_NAME = 'Category';
 const COLLECTION_NAME = 'Categories';
 
 const categorySchema = new Schema({
-    name: {
+    cate_name: {
         type: String,
         required: true,
         unique: true
     },
-    description: {
+    cate_description: {
         type: String,
         required: false
     },
-    image: {
+    cate_image: {
         type: String,
         required: false,
         default: "https://example.com/default-category-image.jpg"

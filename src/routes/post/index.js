@@ -10,7 +10,16 @@ const router = express.Router();
 
 
 router.get('/', asyncHandler(postController.getPosts));
+
+router.get('/:idPost', asyncHandler(postController.getPostById));
+
+router.get('/postByCategory/:idCategory', asyncHandler(postController.getPostByCategoryId));
+
 router.post('/', asyncHandler(postController.createPost));
+
+router.put('/', asyncHandler(postController.updatePost));
+
+router.delete('/', asyncHandler(postController.deletePost));
 
 
 module.exports = router
