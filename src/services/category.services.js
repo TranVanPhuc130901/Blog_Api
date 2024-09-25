@@ -11,7 +11,8 @@ class CategoryServices {
     }
 
     static async getCategoryById({ CategoryId }) {
-        const category = await categoryModel.findOne({ CategoryId })
+        console.log('cate ID', CategoryId)
+        const category = await categoryModel.findOne({ _id: CategoryId })
         if (!category) {
             throw new BadRequestError("Category not found")
         }
