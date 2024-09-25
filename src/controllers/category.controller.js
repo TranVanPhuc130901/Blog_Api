@@ -34,7 +34,9 @@ class CategoryController {
     async getCategoryById(req, res, next) {
         return new SuccessResponse({
             message: "Get category successfully",
-            metadata: await CategoryServices.getCategoryById(req.query)
+            metadata: await CategoryServices.getCategoryById({
+                CategoryId: req.params.idCategory
+            })
         }).send(res)
     }
 

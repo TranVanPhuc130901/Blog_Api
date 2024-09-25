@@ -7,6 +7,8 @@ const compression = require('compression');
 const cors = require('cors');
 // const bodyParser = require('body-parser');
 const app = express();
+const favicon = require('serve-favicon');
+const path = require('path');
 
 // init middleware
 app.use(morgan('dev'));
@@ -19,10 +21,12 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: "*",
     credentials: true // Replace with your actual client origin
         // optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 }));
+
+app.use(favicon(path.join(__dirname, 'public', 'screenshot_1727238291.png')));
 
 // init Database
 require('./dbs/init.mongodb');

@@ -17,7 +17,9 @@ class PostController {
     async getPostById(req, res) {
         return new SuccessResponse({
             message: "Post fetched successfully",
-            metadata: await postServices.getPostById(req.query)
+            metadata: await postServices.getPostById({
+                PostId: req.params.idPost
+            })
         }).send(res);
     }
 

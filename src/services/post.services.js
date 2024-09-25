@@ -12,11 +12,21 @@ class PostServices {
 
     static async getPostsByCategoryId({ categoryId }) {
         const posts = await postModel.find({ categories: categoryId });
+        if (!posts) {
+            return new BadRequestError(
+                `Invalid category Post By categoryId ${categoryId}`
+            );
+        }
         return posts
     }
 
     static async getPostById({ PostId }) {
         const post = await postModel.findOne({ _id: PostId });
+        if (!post) {
+            throw new BadRequestError(
+                `Invalid Post By PostId ${PostId}`
+            );
+        }
         return post
     }
 
